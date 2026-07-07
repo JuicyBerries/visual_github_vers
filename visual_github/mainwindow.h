@@ -19,5 +19,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void loadLogHistory(const char*);
+
+private slots:
+    void saveCredentials();
+    void loadCredentials();
 };
 #endif // MAINWINDOW_H
