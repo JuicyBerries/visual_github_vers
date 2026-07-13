@@ -33,7 +33,7 @@ sudo apt install qt6-base-dev qtcreator cmake ninja-build build-essential libgit
 
 ### 2. Clone the Repository
 ```bash
-git clone [https://github.com/your-username/VisualGit.git](https://github.com/your-username/VisualGit.git)
+git clone [https://github.com/JuicyBerries/visual_github_vers.git](https://github.com/JuicyBerries/visual_github_vers.git)
 cd VisualGit
 ```
 
