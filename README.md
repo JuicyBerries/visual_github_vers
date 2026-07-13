@@ -1,6 +1,6 @@
 # VisualGit
 
-A lightweight, high-performance visual Git client tailored for visual assets and 3D projects (like .vrm avatars and textures). Built with modern C++ and Qt, it aims to provide a seamless "vibe coding" experience without the overhead of Electron-based apps.
+A lightweight, high-performance visual Git client. Built with modern C++ and Qt, it aims to provide a seamless "vibe coding" experience without the overhead of Electron-based apps.
 
 ## Features
 
