@@ -14,7 +14,7 @@
    <string>Versioning</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="mainLayout">
+   <layout class="QVBoxLayout" name="rootLayout">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -31,168 +31,367 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QListWidget" name="sidebarList">
-      <property name="maximumSize">
-       <size>
-        <width>160</width>
-        <height>16777215</height>
-       </size>
+     <layout class="QHBoxLayout" name="repoBarLayout">
+      <property name="leftMargin">
+       <number>8</number>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>8</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
       </property>
       <item>
-       <property name="text">
-        <string>Commit</string>
-       </property>
+       <widget class="QLabel" name="labelRepoPath">
+        <property name="text">
+         <string>Dépôt :</string>
+        </property>
+       </widget>
       </item>
       <item>
-       <property name="text">
-        <string>Log</string>
-       </property>
+       <widget class="QLineEdit" name="repoPathEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="placeholderText">
+         <string>Aucun dépôt sélectionné</string>
+        </property>
+       </widget>
       </item>
       <item>
-       <property name="text">
-        <string>Branches</string>
-       </property>
+       <widget class="QPushButton" name="browseRepoButton">
+        <property name="text">
+         <string>Parcourir...</string>
+        </property>
+       </widget>
       </item>
-      <item>
-       <property name="text">
-        <string>Credentials</string>
-       </property>
-      </item>
-     </widget>
+     </layout>
     </item>
     <item>
-     <widget class="QStackedWidget" name="stackedWidget">
-      <property name="currentIndex">
-       <number>3</number>
+     <layout class="QHBoxLayout" name="mainLayout">
+      <property name="spacing">
+       <number>0</number>
       </property>
-      <widget class="QWidget" name="pageCommit">
-       <layout class="QVBoxLayout" name="commitLayout">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QListWidget" name="sidebarList">
+        <property name="maximumSize">
+         <size>
+          <width>160</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
         <item>
-         <widget class="QLabel" name="labelCommitTitle">
-          <property name="styleSheet">
-           <string notr="true">font-weight: bold; font-size: 14pt;</string>
-          </property>
-          <property name="text">
-           <string>Nouveau commit</string>
-          </property>
-         </widget>
+         <property name="text">
+          <string>Commit</string>
+         </property>
         </item>
         <item>
-         <widget class="QFrame" name="dropZoneFrame">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <layout class="QVBoxLayout" name="dropZoneLayout">
-           <item>
-            <widget class="QLabel" name="labelDropZone">
-             <property name="text">
-              <string>Glissez votre fichier ici</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
+         <property name="text">
+          <string>Log</string>
+         </property>
         </item>
         <item>
-         <widget class="QLabel" name="labelFilesTitle">
-          <property name="text">
-           <string>Fichiers modifiés</string>
-          </property>
-         </widget>
+         <property name="text">
+          <string>Branches</string>
+         </property>
         </item>
         <item>
-         <widget class="QListWidget" name="filesToCommitList">
+         <property name="text">
+          <string>Credentials</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="currentIndex">
+         <number>3</number>
+        </property>
+        <widget class="QWidget" name="pageCommit">
+         <layout class="QVBoxLayout" name="commitLayout">
           <item>
-           <property name="text">
-            <string>avatar_hanako.vrm  [modifié]</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>texture_face.png  [nouveau]</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="commitMessageEdit">
-          <property name="placeholderText">
-           <string>Message de commit</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="commitButton">
-          <property name="text">
-           <string>Ajouter au commit</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="pageLog">
-       <layout class="QVBoxLayout" name="logLayout">
-        <item>
-         <widget class="QLabel" name="labelLogTitle">
-          <property name="styleSheet">
-           <string notr="true">font-weight: bold; font-size: 14pt;</string>
-          </property>
-          <property name="text">
-           <string>Historique</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QListWidget" name="commitLogList">
-          <item>
-           <property name="text">
-            <string>a3f9c1e  v0.4 – correction pose de repos  (Lucie, il y a 2h)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>7b21d40  v0.3 – texture des yeux  (Lucie, hier)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>e08a552  v0.2 – rig squelette initial  (Tom, il y a 3 jours)</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="pageBranches">
-       <layout class="QVBoxLayout" name="branchesLayout">
-        <item>
-         <layout class="QHBoxLayout" name="branchesHeaderLayout">
-          <item>
-           <widget class="QLabel" name="labelBranchesTitle">
+           <widget class="QLabel" name="labelCommitTitle">
             <property name="styleSheet">
              <string notr="true">font-weight: bold; font-size: 14pt;</string>
             </property>
             <property name="text">
-             <string>Branches</string>
+             <string>Nouveau commit</string>
             </property>
            </widget>
           </item>
           <item>
-           <spacer name="branchesHeaderSpacer">
+           <widget class="QFrame" name="dropZoneFrame">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <layout class="QVBoxLayout" name="dropZoneLayout">
+             <item>
+              <widget class="QLabel" name="labelDropZone">
+               <property name="text">
+                <string>Glissez votre fichier ici</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelFilesTitle">
+            <property name="text">
+             <string>Fichiers modifiés</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="filesToCommitList">
+            <item>
+             <property name="text">
+              <string>avatar_hanako.vrm  [modifié]</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>texture_face.png  [nouveau]</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="commitMessageEdit">
+            <property name="placeholderText">
+             <string>Message de commit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="commitButton">
+            <property name="text">
+             <string>Ajouter au commit</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="pageLog">
+         <layout class="QVBoxLayout" name="logLayout">
+          <item>
+           <widget class="QLabel" name="labelLogTitle">
+            <property name="styleSheet">
+             <string notr="true">font-weight: bold; font-size: 14pt;</string>
+            </property>
+            <property name="text">
+             <string>Historique</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="commitLogList">
+            <item>
+             <property name="text">
+              <string>a3f9c1e  v0.4 – correction pose de repos  (Lucie, il y a 2h)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>7b21d40  v0.3 – texture des yeux  (Lucie, hier)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>e08a552  v0.2 – rig squelette initial  (Tom, il y a 3 jours)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="pageBranches">
+         <layout class="QVBoxLayout" name="branchesLayout">
+          <item>
+           <layout class="QHBoxLayout" name="branchesHeaderLayout">
+            <item>
+             <widget class="QLabel" name="labelBranchesTitle">
+              <property name="styleSheet">
+               <string notr="true">font-weight: bold; font-size: 14pt;</string>
+              </property>
+              <property name="text">
+               <string>Branches</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="branchesHeaderSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="newBranchButton">
+              <property name="text">
+               <string>Nouvelle branche</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelLocalBranches">
+            <property name="text">
+             <string>Locales</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="localBranchesList">
+            <item>
+             <property name="text">
+              <string>main  (actuelle)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>essai-texture-cheveux</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>refonte-rig-mains</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelRemoteBranches">
+            <property name="text">
+             <string>Distantes (origin)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="remoteBranchesList">
+            <item>
+             <property name="text">
+              <string>origin/main  (à jour)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>origin/refonte-rig-mains  (2 commits en retard)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="pageCredentials">
+         <layout class="QVBoxLayout" name="credentialsLayout">
+          <item>
+           <widget class="QLabel" name="labelCredentialsTitle">
+            <property name="styleSheet">
+             <string notr="true">font-weight: bold; font-size: 14pt;</string>
+            </property>
+            <property name="text">
+             <string>Identifiants GitHub</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelUsername">
+            <property name="text">
+             <string>Nom d'utilisateur</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="usernameEdit">
+            <property name="placeholderText">
+             <string>ex: lucie-dev</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelToken">
+            <property name="text">
+             <string>Personal access token</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="tokenEdit">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string>ghp_xxxxxxxxxxxxxxxxxxxx</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelSecurityNote">
+            <property name="styleSheet">
+             <string notr="true">color: gray; font-size: 9pt;</string>
+            </property>
+            <property name="text">
+             <string>Stocké chiffré localement, jamais envoyé ailleurs qu'à GitHub.</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="credentialsButtonsLayout">
+            <item>
+             <widget class="QPushButton" name="testConnectionButton">
+              <property name="text">
+               <string>Tester</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="saveCredentialsButton">
+              <property name="text">
+               <string>Enregistrer</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="credentialsSpacer">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -202,151 +401,11 @@
             </property>
            </spacer>
           </item>
-          <item>
-           <widget class="QPushButton" name="newBranchButton">
-            <property name="text">
-             <string>Nouvelle branche</string>
-            </property>
-           </widget>
-          </item>
          </layout>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelLocalBranches">
-          <property name="text">
-           <string>Locales</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QListWidget" name="localBranchesList">
-          <item>
-           <property name="text">
-            <string>main  (actuelle)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>essai-texture-cheveux</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>refonte-rig-mains</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelRemoteBranches">
-          <property name="text">
-           <string>Distantes (origin)</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QListWidget" name="remoteBranchesList">
-          <item>
-           <property name="text">
-            <string>origin/main  (à jour)</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>origin/refonte-rig-mains  (2 commits en retard)</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="pageCredentials">
-       <layout class="QVBoxLayout" name="credentialsLayout">
-        <item>
-         <widget class="QLabel" name="labelCredentialsTitle">
-          <property name="styleSheet">
-           <string notr="true">font-weight: bold; font-size: 14pt;</string>
-          </property>
-          <property name="text">
-           <string>Identifiants GitHub</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelUsername">
-          <property name="text">
-           <string>Nom d'utilisateur</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="usernameEdit">
-          <property name="placeholderText">
-           <string>ex: lucie-dev</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelToken">
-          <property name="text">
-           <string>Personal access token</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="tokenEdit">
-          <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
-          </property>
-          <property name="placeholderText">
-           <string>ghp_xxxxxxxxxxxxxxxxxxxx</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelSecurityNote">
-          <property name="styleSheet">
-           <string notr="true">color: gray; font-size: 9pt;</string>
-          </property>
-          <property name="text">
-           <string>Stocké chiffré localement, jamais envoyé ailleurs qu'à GitHub.</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="credentialsButtonsLayout">
-          <item>
-           <widget class="QPushButton" name="testConnectionButton">
-            <property name="text">
-             <string>Tester</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="saveCredentialsButton">
-            <property name="text">
-             <string>Enregistrer</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <spacer name="credentialsSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-     </widget>
+        </widget>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

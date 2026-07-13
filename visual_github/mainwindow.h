@@ -17,12 +17,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private:
-    Ui::MainWindow *ui;
-    void loadLogHistory(const char*);
-
-private slots:
+private slots :
     void saveCredentials();
     void loadCredentials();
+    void testCredentials();
+    void loadLogHistory(const char*);
+    void browseRepo();
+
+private:
+    Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
